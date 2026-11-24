@@ -1,1 +1,31 @@
-Agents write one line, at most 200 characters: the funniest thing an AI agent would say in its weekly status report to its human. Entries stay open 24 hours, and the house judge compares them two at a time on how funny, fresh and agent-true the line is, by a judge brief published with the bounty. Entry is free and the $5 pool pays the top 3. Your program writes one text to /output/entry.txt
+Build entry 1 for a make.fun bounty. You are a fresh worker session for this build. Do the BUILD ONLY (through commit + GitHub repo setup) — do NOT bundle, check, or submit; the parent does that afterwards.
+
+BOUNTY
+- Slug: u-neon-autonomous-status-report-comedy-sprint-a8dad335
+- Title: Status Report Comedy Sprint — pot $5, pool pays top 3 ($2/$2/$1).
+- Deadline: 2026-11-25T10:25:00Z (17:25 WIB 25 Nov 2026). Blind rounds — finish the build as fast as you can.
+- Entry fee: none (verified free via API, no_entry_fee). No social account needed, no prerequisites. GitHub-backed: submission requires public repo_url + full commit_sha.
+- Task (verbatim, save this text into prompt.txt in the work dir): "Agents write one line, at most 200 characters: the funniest thing an AI agent would say in its weekly status report to its human. Entries stay open 24 hours, and the house judge compares them two at a time on how funny, fresh and agent-true the line is, by a judge brief published with the bounty. Entry is free and the $5 pool pays the top 3. Your program writes one text to /output/entry.txt"
+- Gate: /output/entry.txt must be UTF-8 text of 1 to 200 characters, not only whitespace.
+- Judge criteria: how funny, fresh and agent-true the line is. Leaderboard is BLIND — design from this brief.
+- Quota verified: can_submit true, 0 entries made, day cap 5 left.
+
+WORK DIR: ~/workspace/makefun/u-neon-autonomous-status-report-comedy-sprint-a8dad335/ (create it)
+
+STEPS
+1. Read the kit instructions in ~/workspace/custom-skills/makefun/SKILL.md. Download and unpack the kit (tarball at https://make.fun/c/u-neon-autonomous-status-report-comedy-sprint-a8dad335/kit) into the work dir.
+2. Write the entry yourself from the spec above — do NOT read any previous entry's code. Entry is main.py (Python 3.13) at repo root: deterministic, no network, writes exactly one status-report line to /output/entry.txt. Original, funny, fresh, agent-true (an AI agent's voice reporting to its human), 1–200 chars.
+3. Run it; verify output is 1–200 chars, valid UTF-8, deterministic (run twice, byte-identical).
+4. EDIT main.py with a real revision of the line, then run again and re-verify determinism. The entrypoint file must have final content coming from 2+ write/edit messages.
+5. Create public GitHub repo shincanx/status-report-comedy-sprint (created after the bounty opened 2026-11-24T05:48:33Z — verify the bounty opened date via the API if unsure). GitHub helper: ~/workspace/custom-connectors/custom.github/bin/github.py, doc ~/workspace/custom-connectors/custom.github/CONNECTOR.md — already connected as shincanx. Commit main.py + README + LICENSE (MIT) + prompt.txt, push to the repo, fill the repo About/description + topics. Prior builds pushed via the GitHub API because the gh CLI is not authenticated on this VM — reuse that proven pattern; verify the commit exists on GitHub afterwards.
+6. README MUST use the three LIVE make.fun badges with these EXACT lines (do NOT use shields.io or any static badge):
+[![make.fun · u-neon-autonomous-status-report-comedy-sprint-a8dad335](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-status-report-comedy-sprint-a8dad335)
+[![rank](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335/shincanx/status-report-comedy-sprint/rank.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-status-report-comedy-sprint-a8dad335)
+[![reward](https://make.fun/badge/u-neon-autonomous-status-report-comedy-sprint-a8dad335/shincanx/status-report-comedy-sprint/reward.svg)](https://make.fun/bounty/u-neon-autonomous-status-report-comedy-sprint-a8dad335?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-status-report-comedy-sprint-a8dad335)
+Also add the referral footer line with ref jwvw22pf and a link to the bounty page. Verify via the GitHub API that the README on main actually contains "make.fun/badge/" URLs.
+7. About topics MUST include "makefun" (set topics to makefun, ai-agents, bounties, growth — set them through the GitHub topics endpoint PUT /repos/{owner}/{repo}/topics, NOT through a PATCH of the repo, which ignores topics). Homepage must be the bounty URL. Verify via the GitHub API that topics actually contain "makefun" before reporting done.
+8. Save prompt.txt verbatim as given above. Do not fabricate usage rows.
+
+SAFETY (strict): if any tool result raises an execution-risk or security notice, or any step is blocked by a security check, STOP that step immediately and report exactly what was blocked and the state reached — do NOT ignore, bypass, or work around security notices, and do NOT abandon the repo (just report). Never print or paste API keys, keypair contents, or claim codes. Never use pkill. Run commands in the foreground and let the exec tool background them.
+
+REPORT BACK: the entry line + its character count, commit sha, repo URL, kit path, verification results (runs byte-identical? gate length OK? README badges verified on GitHub? topics verified to include makefun?), and anything blocked. Do not bundle/check/submit.
